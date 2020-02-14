@@ -17,8 +17,17 @@ class Timer {
   };
 
   tick = () => {
-    const timeRemaining = parseFloat(this.durationInput.value);
+    const { timeRemaining } = this;
+    this.timeRemaining = timeRemaining - 1;
   };
+
+  get timeRemaining() {
+    return parseFloat(this.durationInput.value);
+  }
+
+  set timeRemaining(time) {
+    this.durationInput.value = time;
+  }
 }
 
 const durationInput = document.querySelector('#duration');
